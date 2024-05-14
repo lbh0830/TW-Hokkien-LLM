@@ -39,7 +39,7 @@ This project is based on Traditional Chinese LLaMA-2 models. We continued pre-tr
 | Taigi-Llama-2-Translator-13B | Fine-tuning Taigi-Llama-2 with parallel data in Taiwanese Hokkien, Mandarin Chinese, and English. | Translation Model | [🤗 Bohanlu/Taigi-Llama-2-Translator-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-13B) |
 | Taigi-Llama-2-Chat-7B | Fine-tuning Taigi-Llama-2 with Taiwanese Hokkien Hanzi instruction fine-tuning datasets. | Chat Model | [🔨 Coming Soon](#) |
 | Taigi-Llama-2-Chat-13B | Fine-tuning Taigi-Llama-2 with Taiwanese Hokkien Hanzi instruction fine-tuning datasets. | Chat Model | [🔨 Coming Soon](#) |
-| iCorpus-100 | A parallel dataset for evaluating the performance of Taiwanese Hokkien translation models. | Dataset | [🤗 Bohanlu/iCorpus-100](https://huggingface.co/Bohanlu/iCorpus-100) |
+| iCorpus-100 | A parallel dataset for evaluating the performance of Taiwanese Hokkien translation models. | Dataset | [🤗 Bohanlu/iCorpus-100](https://huggingface.co/datasets/Bohanlu/iCorpus-100) |
 
 
 ## Taigi-Llama-2-Translator Performance on iCorpus-100
