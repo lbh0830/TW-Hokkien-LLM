@@ -33,13 +33,13 @@
 
 | 名稱 | 描述 | 類型 | 連結 |
 | :--- | :---| :--- | :--- |
-| Taigi-Llama-2-7B | 使用台灣閩南語語料對繁體中文 Llama2 模型繼續預訓練。 | Base Model | [🤗 Bohanlu/Taigi-Llama-2-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-7B) |
-| Taigi-Llama-2-13B | 使用台灣閩南語語料對繁體中文 Llama2 模型繼續預訓練。 | Base Model | [🤗 Bohanlu/Taigi-Llama-2-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-13B) | 
-| Taigi-Llama-2-Translator-7B | 使用台灣閩南語、中文和英文的平行數據對 Taigi-Llama-2 進行微調。 | Translation Model | [🤗 Bohanlu/Taigi-Llama-2-Translator-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-7B) |
-| Taigi-Llama-2-Translator-13B | 使用台灣閩南語、中文和英文的平行數據對 Taigi-Llama-2 進行微調 | Translation Model | [🤗 Bohanlu/Taigi-Llama-2-Translator-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-13B) |
-| Taigi-Llama-2-Chat-7B | 利用台灣閩南語漢字指令精調資料集對 Taigi-Llama-2 進行精調。 | Chat Model | [🔨 Coming Soon](#) |
-| Taigi-Llama-2-Chat-13B | 利用台灣閩南語漢字指令精調資料集對 Taigi-Llama-2 進行精調。 | Chat Model | [🔨 Coming Soon](#) |
-| iCorpus-100 | 用於評估台灣閩南語翻譯模型性能的平行數據集。 | Dataset | [🤗 Bohanlu/iCorpus-100](https://huggingface.co/datasets/Bohanlu/iCorpus-100) |
+| Taigi-Llama-2-7B | 使用台灣閩南語語料對繁體中文 Llama2 模型繼續預訓練。 | 🦙 Base Model | [🤗 Bohanlu/Taigi-Llama-2-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-7B) |
+| Taigi-Llama-2-13B | 使用台灣閩南語語料對繁體中文 Llama2 模型繼續預訓練。 | 🦙 Base Model | [🤗 Bohanlu/Taigi-Llama-2-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-13B) | 
+| Taigi-Llama-2-Translator-7B | 使用台灣閩南語、中文和英文的平行數據對 Taigi-Llama-2 進行微調。 | 🔁 Translation Model | [🤗 Bohanlu/Taigi-Llama-2-Translator-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-7B) |
+| Taigi-Llama-2-Translator-13B | 使用台灣閩南語、中文和英文的平行數據對 Taigi-Llama-2 進行微調 | 🔁 Translation Model | [🤗 Bohanlu/Taigi-Llama-2-Translator-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-13B) |
+| Taigi-Llama-2-Chat-7B | 利用台灣閩南語漢字指令精調資料集對 Taigi-Llama-2 進行精調。 | 💬 Chat Model | [🔨 Coming Soon](#) |
+| Taigi-Llama-2-Chat-13B | 利用台灣閩南語漢字指令精調資料集對 Taigi-Llama-2 進行精調。 | 💬 Chat Model | [🔨 Coming Soon](#) |
+| iCorpus-100 | 用於評估台灣閩南語翻譯模型性能的平行數據集。 | 📃 Dataset | [🤗 Bohanlu/iCorpus-100](https://huggingface.co/datasets/Bohanlu/iCorpus-100) |
 
 
 ## Taigi-Llama-2-Translator 在 iCorpus-100 上的翻譯表現
@@ -220,7 +220,7 @@
 </table>
 
 ## 引用
-如果您使用了這個存儲庫中的資源，請引用以下文獻：
+如果您使用了這個儲存庫中的資源，請引用以下文獻：
 
 ```
 @misc{lu2024enhancing,
