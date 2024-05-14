@@ -1,6 +1,6 @@
 # 台灣閩南語大型語言模型 Taiwanese Hokkien (Taigi) LLMs
 
-[**中文**](./README_ZH.md) | [**Hokkien Han**](./README_HAN.md) | [**English**](./README.md) | 🤗 <a href="https://huggingface.co/collections/Bohanlu/taiwanese-hokkien-llm-6614ba7456e6789bc2f10ca0" target="_blank">Model Collection</a> | 📜 <a href="https://arxiv.org/abs/2403.12024" target="_blank">Paper</a>
+[**中文**](./README_ZH.md) | [**台灣閩南語**](./README_HAN.md) | [**English**](./README.md) | 🤗 <a href="https://huggingface.co/collections/Bohanlu/taiwanese-hokkien-llm-6614ba7456e6789bc2f10ca0" target="_blank">Model Collection</a> | 📜 <a href="https://arxiv.org/abs/2403.12024" target="_blank">Paper</a>
 <br>
 <!-- <p align="center">
 <img src="https://dummyimage.com/800x800/000/faf" width="100"> <br/>
