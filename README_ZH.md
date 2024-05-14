@@ -13,37 +13,37 @@
     <br/>
 </p>
 
-## Introduction
+## 介紹
 
-This project is based on Traditional Chinese LLaMA-2 models. We continued pre-training with 78MB of Taiwanese Hokkien monolingual corpora, which includes POJ, Hanlo, and Hanzi writing systems, to produce the Taiwanese Hokkien version LLaMA-2 base model, **Taigi-Llama-2**. We then trained a translation model based on **Taigi-Llama-2** using collected parallel datasets to obtain **Taigi-Llama-2-Translator**. Using this translator, we produced Taiwanese Hokkien Hanzi instruction fine-tuning datasets from the Mandarin Chinese version. Following this, we obtained **Taigi-Llama-2-Chat** by instruction fine-tuning on Taiwanese Hokkien Hanzi datasets.
+這個專案是基於繁體中文的 LLaMA-2 模型開發。我們使用 78MB 的台灣閩南語單語語料，包括白話字（POJ）、漢羅（Hanlo）和漢字書寫系統，進行繼續預訓練，產生台灣閩南語版本的 LLaMA-2 語言模型，**Taigi-Llama-2**。接著，我們基於 **Taigi-Llama-2** 訓練了一個台語對中英文以及台語不同文字系統間的翻譯模型，使用收集的平行資料集得到 **Taigi-Llama-2-Translator**。最後，使用這個翻譯器，我們可以從中文版本的指令精調資料集生成相對應的台灣閩南語漢字版本，我們通過在台灣閩南語漢字資料集上進行指令精調，獲得了 **Taigi-Llama-2-Chat**。
 
-## In Progress
+## 進行中
 
-- [ ] **Taigi-Llama-2-Chat 7B / 13B Model**: We are currently utilizing the Taigi-Llama-2-Translator to produce datasets for training the chat model. The model will be released in the near future.
+- [ ] **Taigi-Llama-2-Chat 7B / 13B Model**: 我們目前正在利用 Taigi-Llama-2-Translator 生成數據集，以訓練對話模型。該模型將在不久的將來發布。
 
-## Prompt Template
+## 提示模板
 ### Taigi-Llama-2-Translator
 ```
 [TRANS]\n{source_sentence}\n[/TRANS]\n[{target_language}]\n
 ```
-- `source_sentence`: The sentence you want to translate.
-- `target_language`: The target language you want to translate to. Use "ZH" for Mandarin Chinese, "EN" for English, "POJ" for Taiwanese Hokkien POJ, "HL" for Taiwanese Hokkien Hanlo, and "HAN" for Taiwanese Hokkien Hanzi.
+- `source_sentence`: 希望翻譯的句子。
+- `target_language`: 希望翻譯成的目標語言。使用 "ZH" 表示繁體中文，"EN" 表示英文，"POJ" 表示台灣閩南語白話字，"HL" 表示台灣閩南語漢羅，"HAN" 表示台灣閩南語漢字。
 
-## Download
+## 模型下載
 
-| Name | Description | Type | Link |
+| 名稱 | 描述 | 類型 | 連結 |
 | :--- | :---| :--- | :--- |
-| Taigi-Llama-2-7B | Continued pre-training of a traditional Chinese Llama2 model using a Hokkien corpus. | Base Model | [🤗 Bohanlu/Taigi-Llama-2-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-7B) |
-| Taigi-Llama-2-13B | Continued pre-training of a traditional Chinese Llama2 model using a Hokkien corpus. | Base Model | [🤗 Bohanlu/Taigi-Llama-2-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-13B) | 
-| Taigi-Llama-2-Translator-7B | Fine-tuning Taigi-Llama-2 with parallel data in Taiwanese Hokkien, Mandarin Chinese, and English. | Translation Model | [🤗 Bohanlu/Taigi-Llama-2-Translator-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-7B) |
-| Taigi-Llama-2-Translator-13B | Fine-tuning Taigi-Llama-2 with parallel data in Taiwanese Hokkien, Mandarin Chinese, and English. | Translation Model | [🤗 Bohanlu/Taigi-Llama-2-Translator-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-13B) |
-| Taigi-Llama-2-Chat-7B | Fine-tuning Taigi-Llama-2 with Taiwanese Hokkien Hanzi instruction fine-tuning datasets. | Chat Model | [🔨 Coming Soon](#) |
-| Taigi-Llama-2-Chat-13B | Fine-tuning Taigi-Llama-2 with Taiwanese Hokkien Hanzi instruction fine-tuning datasets. | Chat Model | [🔨 Coming Soon](#) |
-| iCorpus-100 | A parallel dataset for evaluating the performance of Taiwanese Hokkien translation models. | Dataset | [🤗 Bohanlu/iCorpus-100](https://huggingface.co/Bohanlu/iCorpus-100) |
+| Taigi-Llama-2-7B | 使用台灣閩南語語料對繁體中文 Llama2 模型繼續預訓練。 | Base Model | [🤗 Bohanlu/Taigi-Llama-2-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-7B) |
+| Taigi-Llama-2-13B | 使用台灣閩南語語料對繁體中文 Llama2 模型繼續預訓練。 | Base Model | [🤗 Bohanlu/Taigi-Llama-2-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-13B) | 
+| Taigi-Llama-2-Translator-7B | 使用台灣閩南語、中文和英文的平行數據對 Taigi-Llama-2 進行微調。 | Translation Model | [🤗 Bohanlu/Taigi-Llama-2-Translator-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-7B) |
+| Taigi-Llama-2-Translator-13B | 使用台灣閩南語、中文和英文的平行數據對 Taigi-Llama-2 進行微調 | Translation Model | [🤗 Bohanlu/Taigi-Llama-2-Translator-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-13B) |
+| Taigi-Llama-2-Chat-7B | 利用台灣閩南語漢字指令精調資料集對 Taigi-Llama-2 進行精調。 | Chat Model | [🔨 Coming Soon](#) |
+| Taigi-Llama-2-Chat-13B | 利用台灣閩南語漢字指令精調資料集對 Taigi-Llama-2 進行精調。 | Chat Model | [🔨 Coming Soon](#) |
+| iCorpus-100 | 用於評估台灣閩南語翻譯模型性能的平行數據集。 | Dataset | [🤗 Bohanlu/iCorpus-100](https://huggingface.co/Bohanlu/iCorpus-100) |
 
 
-## Taigi-Llama-2-Translator Performance on iCorpus-100
-Using greedy decoding with beam size set to 1 and repetition penalty to 1.1, the performance of Taigi-Llama-2-Translator on iCorpus-100 is as follows:
+## Taigi-Llama-2-Translator 在 iCorpus-100 上的翻譯表現
+使用貪婪解碼，將波束大小設置為 1，重複懲罰設置為 1.1，Taigi-Llama-2-Translator 在 iCorpus-100 上的表現如下：
 
 ### Taigi-Llama-2-Translator-7B
 <table>
@@ -219,8 +219,8 @@ Using greedy decoding with beam size set to 1 and repetition penalty to 1.1, the
   </tr>
 </table>
 
-## Citation
-If you use the resources in this repository, please cite the following work:
+## 引用
+如果您使用了這個存儲庫中的資源，請引用以下文獻：
 
 ```
 @misc{lu2024enhancing,
