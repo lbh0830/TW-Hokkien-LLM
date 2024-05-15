@@ -226,7 +226,7 @@
 
 ```
 @misc{lu2024enhancing,
-      title={Enhancing Hokkien Dual Translation by Exploring and Standardizing of Four Writing Systems}, 
+      title={Enhancing Taiwanese Hokkien Dual Translation by Exploring and Standardizing of Four Writing Systems}, 
       author={Bo-Han Lu and Yi-Hsuan Lin and En-Shiun Annie Lee and Richard Tzong-Han Tsai},
       year={2024},
       eprint={2403.12024},
