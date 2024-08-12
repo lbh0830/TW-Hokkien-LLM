@@ -1,46 +1,48 @@
 # 台灣閩南語大型語言模型 Taiwanese Hokkien (Taigi) LLMs
 
 [**中文**](./README_ZH.md) | [**台灣閩南語**](./README_HAN.md) | [**English**](./README.md) | 🤗 <a href="https://huggingface.co/collections/Bohanlu/taiwanese-hokkien-llm-6614ba7456e6789bc2f10ca0" target="_blank">Model Collection</a> | 📜 <a href="https://arxiv.org/abs/2403.12024" target="_blank">Paper</a>
-<br>
-<!-- <p align="center">
-<img src="https://dummyimage.com/800x800/000/faf" width="100"> <br/>
-</p> -->
 
 <p align="center">
-    <br>
-        <img src="https://img.shields.io/badge/Code_License-MIT-blue"></a>
-        <img src="https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg"></a>
-    <br/>
+<img src="./pics/logo.jpg" width="450">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Code_License-MIT-blue"></a>
+  <img src="https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg"></a>
 </p>
 
 ## 介紹
 
 這個專案是基於繁體中文的 LLaMA-2 模型開發。我們使用 78MB 的台灣閩南語單語語料，包括白話字（POJ）、漢羅（Hanlo）和漢字書寫系統，進行繼續預訓練，產生台灣閩南語版本的 LLaMA-2 語言模型，**Taigi-Llama-2**。接著，我們基於 **Taigi-Llama-2** 訓練了一個台語對中英文以及台語不同文字系統間的翻譯模型，使用收集的平行資料集得到 **Taigi-Llama-2-Translator**。最後，使用這個翻譯器，我們可以從中文版本的指令精調資料集生成相對應的台灣閩南語漢字版本，我們通過在台灣閩南語漢字資料集上進行指令精調，獲得了 **Taigi-Llama-2-Chat**。
 
-## 進行中
-
-- [ ] **Taigi-Llama-2-Chat 7B / 13B Model**: 我們目前正在利用 Taigi-Llama-2-Translator 生成數據集，以訓練對話模型。該模型將在不久的將來發布。
-
 ## 提示模板
 ### Taigi-Llama-2-Translator
 ```
-[TRANS]\n{source_sentence}\n[/TRANS]\n[{target_language}]\n
+{BOS}[TRANS]\n{source_sentence}\n[/TRANS]\n[{target_language}]\n
 ```
 - `source_sentence`: 希望翻譯的句子。
 - `target_language`: 希望翻譯成的目標語言。使用 "ZH" 表示繁體中文，"EN" 表示英文，"POJ" 表示台灣閩南語白話字，"HL" 表示台灣閩南語漢羅，"HAN" 表示台灣閩南語漢字。
+- 有關如何使用模型的範例程式碼，請參閱 [generation_sample_code.ipynb](./Notebook/generation_sample_code.ipynb)。
+
+### Taigi-Llama-2-Chat
+```
+{BOS}[INST] {user} [/INST]
+```
+- `user`: 使用者的輸入。
+- 有關如何使用模型的範例程式碼，請參閱 [generation_sample_code.ipynb](./Notebook/generation_sample_code.ipynb)。
 
 ## 模型下載
 
 | 名稱 | 描述 | 類型 | 連結 |
 | :--- | :---| :--- | :--- |
-| Taigi-Llama-2-7B | 使用台灣閩南語語料對繁體中文 Llama2 模型繼續預訓練。 | 🦙 Base Model | [🤗 Bohanlu/Taigi-Llama-2-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-7B) |
-| Taigi-Llama-2-13B | 使用台灣閩南語語料對繁體中文 Llama2 模型繼續預訓練。 | 🦙 Base Model | [🤗 Bohanlu/Taigi-Llama-2-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-13B) | 
-| Taigi-Llama-2-Translator-7B | 使用台灣閩南語、中文和英文的平行數據對 Taigi-Llama-2 進行微調。 | 🔁 Translation Model | [🤗 Bohanlu/Taigi-Llama-2-Translator-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-7B) |
-| Taigi-Llama-2-Translator-13B | 使用台灣閩南語、中文和英文的平行數據對 Taigi-Llama-2 進行微調 | 🔁 Translation Model | [🤗 Bohanlu/Taigi-Llama-2-Translator-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-13B) |
-| Taigi-Llama-2-Chat-7B | 利用台灣閩南語漢字指令精調資料集對 Taigi-Llama-2 進行精調。 | 💬 Chat Model | [🔨 Coming Soon](#) |
-| Taigi-Llama-2-Chat-13B | 利用台灣閩南語漢字指令精調資料集對 Taigi-Llama-2 進行精調。 | 💬 Chat Model | [🔨 Coming Soon](#) |
-| iCorpus-100 | 用於評估台灣閩南語翻譯模型性能的平行數據集。 | 📃 Dataset | [🤗 Bohanlu/iCorpus-100](https://huggingface.co/datasets/Bohanlu/iCorpus-100) |
-
+| Taigi-Llama-2-7B | 使用台灣閩南語語料對繁體中文 Llama2 模型繼續預訓練。 | 🦙 基礎語言模型 | [🤗 Bohanlu/Taigi-Llama-2-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-7B) |
+| Taigi-Llama-2-13B | 使用台灣閩南語語料對繁體中文 Llama2 模型繼續預訓練。 | 🦙 基礎語言模型 | [🤗 Bohanlu/Taigi-Llama-2-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-13B) | 
+| Taigi-Llama-2-Translator-7B | 使用台灣閩南語、中文和英文的平行數據對 Taigi-Llama-2 進行微調。 | 🔁 翻譯模型 | [🤗 Bohanlu/Taigi-Llama-2-Translator-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-7B) |
+| Taigi-Llama-2-Translator-13B | 使用台灣閩南語、中文和英文的平行數據對 Taigi-Llama-2 進行微調 | 🔁 翻譯模型 | [🤗 Bohanlu/Taigi-Llama-2-Translator-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Translator-13B) |
+| Taigi-Llama-2-Chat-7B | 利用台灣閩南語漢字指令精調資料集對 Taigi-Llama-2 進行精調。 | 💬 對話模型 | [🤗 Bohanlu/Taigi-Llama-2-Chat-7B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Chat-7B) |
+| Taigi-Llama-2-Chat-13B | 利用台灣閩南語漢字指令精調資料集對 Taigi-Llama-2 進行精調。 | 💬 對話模型 | [🤗 Bohanlu/Taigi-Llama-2-Chat-13B](https://huggingface.co/Bohanlu/Taigi-Llama-2-Chat-13B) |
+| iCorpus-100 | 用於評估台灣閩南語翻譯模型性能的平行資料集。 | 📃 資料集 | [🤗 Bohanlu/iCorpus-100](https://huggingface.co/datasets/Bohanlu/iCorpus-100) |
+| TAIDE-14-tasks-Hokkien | 包含 14 種任務的台灣閩南語漢字提示資料集 | 📃 資料集 | [🤗 Bohanlu/TAIDE-14-tasks-Hokkien](https://huggingface.co/datasets/Bohanlu/TAIDE-14-tasks-Hokkien) |
 
 ## Taigi-Llama-2-Translator 在 iCorpus-100 上的翻譯表現
 使用貪婪解碼，將波束大小設置為 1，重複懲罰設置為 1.1，Taigi-Llama-2-Translator 在 iCorpus-100 上的表現如下：
@@ -218,6 +220,69 @@
     <td>-</td>
   </tr>
 </table>
+
+## Taigi-Llama-2-Chat 在 TAIDE-14-tasks-Hokkien 中的輸出範例
+<table>
+  <tr>
+    <th>Prompt</th>
+    <th>Taigi-Llama-2-Chat-7B</th>
+    <th>Taigi-Llama-2-Chat-13B</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">請分析下面這段話內底的心情，作者咧講著天氣變遷予地球造成的影響，𪜶敢有煩惱、受氣、傷悲抑是樂天的心情？請你共我解說一下。
+氣候變遷對地球的影響是袂當無看見的。逐年，咱看著極端氣候的事件佇咧增加，冰山溶去造成海水面升懸，無數的生物當咧面臨滅種的危機。雖罔狀況真嚴重，毋過咱猶是有機會來改變這一切。透過減少溫室氣體的排放、栽培樹仔佮保護生態系統，咱會使為著地球的後代做出奉獻。</td>
+    <td style="vertical-align: top;"> 佇這个段落內底，作者表達出對氣候變遷的擔憂佮關心。伊描寫了氣候變遷帶來的影響，親像極端氣候事件增加、冰川溶去致使海平面上升，閣有真濟物種面對滅絕的威脅。遮的描寫攏顯露出來作者對氣候變遷的掛慮佮不安。
+毋過，作者嘛強調講咱猶是會當做一寡代誌來改變這寡情形。伊建議咱減少溫室氣體的排放、種樹仔佮保護生態系統，按呢會當對地球的後代做出貢獻。遮的建議顯露出作者向望佮樂觀的態度，相信人類若做伙拍拚，就會當克服氣候變遷帶來的挑戰。
+總講一句，作者的心情主要是憂愁佮向望相參。伊煩惱氣候變遷對地球佮生物造成傷害，毋過仝款嘛認為人類有才調改變現況，而且閣愛積極採取行動。這款心情反映出作者對環境的關心佮責任心，嘛顯露出伊向望未來的世界會變甲較好的期待。 </td>
+    <td style="vertical-align: top;">佇這段話內底，作者的心情是積極佮樂天的。伊表達了氣候變遷對地球的影響是真實的閣嚴重的，毋過仝時嘛強調講這馬猶有機會通改變這一切。作者呼籲人著採取行動，親像減少溫室氣體的排放、種樹仔佮保護生態系統，來保護地球佮地球頂面的生物。這款積極的態度佮樂天的精神，顯露出作者佇面對氣候變遷的時，雖然知影狀況嚴峻，猶是充滿希望佮信心。</td>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">請生出一段佮醫學健康相關的對話，內面有牽涉著組織的資訊。對話應該會牽連著組織的功能、相關病症佮治療的方法。
+阿明共𪜶老母問講人的一个組織，伊想欲知影肝臟的功能、可能會拄著的病症佮醫治的方法。𪜶老母是一个醫生，所以伊對遮的智識真熟似。𪜶的對話按呢寫：</td>
+    <td style="vertical-align: top;"> 阿明：阿母，我聽人講肝是人身體上重要的器官之一，毋過我對肝的了解並袂濟。你敢會當共我講肝的功用佮可能會拄著的病症佮治療的方法？
+
+老母：當然，肝臟是咱人體中真重要的器官之一。伊主要的功能包括：
+
+1. 解毒：肝臟會當分解佮消除身軀內面的毒素，親像藥物、酒精佮有毒的化學物等等。
+2. 營養代謝：肝臟負責共食物中的養份分解佮吸收，閣來參與脂肪、蛋白質佮醣類的新陳代謝。
+3. 貯血：肝臟會當貯佮調節血液中ê油脂，閣會當調節血糖濃度。
+4. 免疫功能：肝臟有免疫細胞，會當對抗感染佮發炎。
+
+啊若肝病，肝病會分做兩類：
+
+1. 急性肝病：像急性肝炎、肝中毒等等，通常是因為病毒、細菌抑是藥仔引起--的。
+2. 慢性肝病：像肝硬化、肝癌等等，通常是因為長期喝酒、慢性肝炎、脂肪肝等等因素造成的。
+
+啊若肝病的治療方法，會使分做下列幾款：
+
+1. 藥物治療：針對無仝款的肝病，會使用無仝款的藥物來治療。比論講，對肝炎會使用抗病毒的藥仔；對肝硬化會使用保肝劑；對肝癌會使用化學療法、放射線療法等等。
+2. 手術治療：對一寡肝病，親像肝腫瘤、肝囊腫等等，會當透過手術來治療。
+3. 介入性治療：對一寡肝病，親像肝動脈栓塞術、肝臟移植等等，會當透過介入性治療來改善病情。
+
+阿明：多謝你的解說，按呢我對肝臟的功能佮肝病的治療方式已經有較清楚矣。
+
+老母：你嘛愛注意維持身體健康，避免食酒、食薰等等的歹習慣，定期做身體檢查，提早發現問題來治療。 </td>
+    <td style="vertical-align: top;"> 阿明：阿母，我聽人講肝臟真重要，會當共咱的身軀內底的新陳代謝佮解毒的功能做甲好勢好勢。是按怎咧？<br>阿母：無毋著，肝臟是人體上大的器官之一，伊的主要功能就是新陳代謝佮解毒。新陳代謝就是共食入去的營養素轉化做身體需要的能量，嘛共食入去的毒素佮有害物質分解。解毒就是共血液中的毒素佮有害物質過濾掉，予伊袂入去身軀內。<br>阿明：是講肝臟是按怎會生出病來？<br>阿母：肝臟的病症包括肝炎、肝硬化、肝癌等等。肝炎是講肝臟發炎，肝硬化是講肝臟纖維化，肝癌是講肝臟生腫瘤。遮的病症的病因各無仝款，親像病毒感染、酒精中毒、肝硬化、遺傳因素等等。<br>阿明：是按怎會當治療肝病？<br>阿母：肝病的治療方法因為病情無仝，像肝炎會使用抗病毒的藥仔，肝硬化會使用保肝的藥仔，肝癌會使用手術、放射線治療、化學治療抑是標靶治療。另外，保持健康的生活方式，親像均衡飲食、適當的運動、避免啉酒等等，嘛會當幫贊保護肝臟。<br>阿明：若肝臟出問題，有啥物症頭？<br>阿母：肝病的症頭因為病情無仝，像肝炎可能會有厭𤺪、無胃口、黃疸、茶色尿等等的症頭。肝硬化的時陣可能會有腹肚疼、腰子疼、疲勞、體重減輕等等。肝癌的症頭嘛是百百款，親像腹肚漲疼、黃疸、茶色尿、體重減輕等等。<br>阿母：所以，保護肝臟真要緊。除了保持健康的生活方式以外，定期做身體檢查嘛真重要。若出現任何佮肝臟相關的症頭，著愛即時去病院看。<br>阿明：多謝阿母，我今仔日學著真濟有關肝臟的智識。 </td>
+  </tr>
+    <tr>
+    <td style="vertical-align: top;">根據下跤用戶對電動車的評論，分析內底的情緒成份，閣共評論者滿意的程度評分（一到十），十分代表誠滿意，一分代表誠不滿意。
+我最近買一台電動車，我對伊的設計佮環保性真有好感。雖罔充電站無遐爾仔好揣，毋過伊的續行力夠額予我做工課用矣。有時陣會煩惱揣袂著充電站，總是講起來，我對我的電動車感覺誠滿意。</td>
+    <td style="vertical-align: top;">評論者對電動車的評價主要是正面的，對設計佮環保性攏表示出肯定。雖然佇充電站方面有小可仔掛慮，毋過整體來講猶是感覺滿意。根據情緒分析，這个評論者對電動車的滿意度應該會使評做七分（誠滿意）。</td>
+    <td style="vertical-align: top;">這个評論者對電動車的滿意度是七分，主要是對電動車的設計佮環保性感覺滿意，毋過對充電站的便利性有淡薄仔掛慮。</td>
+  </tr>
+    <tr>
+    <td style="vertical-align: top;">請將下面的中文句仔翻做英文：「頭家咧發想創新的生理型態的時陣，愛考慮著市場的需求、佮競爭者的實力、閣有創新的策略等等濟濟項的因端。」</td>
+    <td style="vertical-align: top;"> When the boss is thinking about a new business model, he or she needs to consider many factors, such as market demand, competitor strength, and innovation strategies. </td>
+    <td style="vertical-align: top;"> When the boss is brainstorming innovative business types, he needs to consider market demand, competitor strength, and innovative strategies, among many other factors. </td>
+  </tr>
+    <tr>
+    <td style="vertical-align: top;">將下面這段有關地動的英文，請翻譯做閩南語。
+Earthquakes are the result of sudden release of energy in the Earth's crust, leading to seismic waves. The intensity and magnitude of an earthquake can vary greatly depending on factors such as the depth of the focus and the distance from the epicenter. Earthquakes can cause significant damage to buildings, infrastructure, and even lead to loss of life. It is essential for governments and communities to invest in earthquake-resistant infrastructure and educate the public on how to respond during an earthquake.</td>
+    <td style="vertical-align: top;">地動是地球殼層雄雄放出能量，造成地動波。地動的強弱佮規模會因為震央佇佗位、離震源遠近無仝來改變。地動會予建築物、基礎建設佮性命害了了。政府佮社區愛投資佇防震的基礎建設，閣教示民眾按怎佇地動來的時陣有反應。</td>
+    <td style="vertical-align: top;">地動是地球殼內能量雄雄放出所引起的，致使地動波。地動的強弱佮規模會因為像震央深度佮離震央遠近等等因素，產生足大的精差。地動會嚴重破壞建築物、基礎建設，甚至造成性命的損失。政府佮社區愛投資佇抗震的基礎設施，嘛愛教育民眾按怎因應地動。</td>
+  </tr>
+</table>
+
 
 ## 引用
 如果您使用了這個儲存庫中的資源，請引用以下文獻：
